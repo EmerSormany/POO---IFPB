@@ -1,6 +1,8 @@
 """
     1.2 Criando atributos e métodos usando atributos
 """
+import random
+
 class Personagem:
     """
         6 Crie uma classe Personagem com um atributo nome e um
@@ -22,11 +24,19 @@ class Personagem:
         if self.vida <= 0:
             print("Game Over!")
 
+    def atacar(self, alvo):
+        dano = random.randint(5, 20)
+
+        print(f"{self.nome} atacou {alvo.nome}!")
+        print(f"{alvo.nome} recebeu {dano} de dano!", end="\n \n")
+        
+        alvo.tomar_dano(dano)
+        if alvo.vida <= 0:
+            print(f"{alvo.nome} foi derrotado!")
+        
     def dizer_nome(self):
         print(f"Meu nome é {self.nome}")
 
-persnagem = Personagem("Sibito")
-persnagem.dizer_nome()
 
 class Pontuacao:
     """
@@ -43,9 +53,6 @@ class Pontuacao:
     def mostrar_pontos(self):
         print(f"Pontuação atual: {self.pontos}")
 
-pontos = Pontuacao()
-pontos.adicionar_pontos(10)
-pontos.mostrar_pontos()
 
 class Jogador():
     """
@@ -66,10 +73,6 @@ class Jogador():
         else:
             self.energia -= quantidade
 
-jogador = Jogador()
-jogador.recuperar_energia(20)
-jogador.usar_energia(30)
-jogador.usar_energia(50)
 
 class Inimigo():
     """
@@ -83,9 +86,34 @@ class Inimigo():
         self.vida = vida
 
     def atacar(self, alvo):
-        alvo.tomar_dano(100)
+        dano = random.randint(5, 20)
 
-heroi = Personagem("Sibito")
-inimigo = Inimigo("Ogro")
+        print(f"{self.nome} atacou {alvo.nome}!")
+        print(f"{alvo.nome} recebeu {dano} de dano!", end="\n \n")
 
-inimigo.atacar(heroi)
+        alvo.tomar_dano(dano)
+        if alvo.vida <= 0:
+            print(f"{alvo.nome} foi derrotado!")
+    
+    def tomar_dano(self, dano):
+        self.vida -= dano
+        if self.vida <= 0:
+            print("Game Over!")
+
+# personagem = Personagem("Sibito")
+# personagem.dizer_nome()
+
+# pontos = Pontuacao()
+# pontos.adicionar_pontos(10)
+# pontos.mostrar_pontos()
+
+# jogador = Jogador()
+# jogador.recuperar_energia(20)
+# jogador.usar_energia(30)
+# jogador.usar_energia(50)
+
+# heroi = Personagem("Sibito")
+# inimigo = Inimigo("Ogro")
+
+# inimigo.atacar(heroi)
+
