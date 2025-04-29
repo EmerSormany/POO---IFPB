@@ -71,7 +71,7 @@ jogador.recuperar_energia(20)
 jogador.usar_energia(30)
 jogador.usar_energia(50)
 
-class Inimigo(Personagem):
+class Inimigo():
     """
         10 Crie uma classe Inimigo com atributos nome e vida (inicializada
         com 100). Adicione um método atacar(alvo), onde alvo é um
