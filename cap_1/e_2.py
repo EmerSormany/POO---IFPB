@@ -73,9 +73,8 @@ class Inimigo():
         objeto da classe Personagem. Esse método deve reduzir a vida
         do alvo em 10 pontos.
     """
-    def __init__(self, nome, vida=100):
+    def __init__(self, nome):
         self.nome = nome
-        self.vida = vida
 
     def atacar(self, alvo, dano):
         alvo.vida -= 10 
