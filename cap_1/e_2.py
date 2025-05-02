@@ -1,7 +1,6 @@
 """
     1.2 Criando atributos e métodos usando atributos
 """
-import random
 
 class Personagem:
     """
@@ -22,20 +21,12 @@ class Personagem:
     def tomar_dano(self, dano):
         self.vida -= dano
         if self.vida <= 0:
-            print("Game Over!")
-
-    def atacar(self, alvo):
-        dano = random.randint(5, 20)
-
-        print(f"{self.nome} atacou {alvo.nome}!")
-        print(f"{alvo.nome} recebeu {dano} de dano!", end="\n \n")
-        
-        alvo.tomar_dano(dano)
-        if alvo.vida <= 0:
-            print(f"{alvo.nome} foi derrotado!")
+            print("Game Over!", end="\n \n")
+        else:
+            print(f"{self.nome} tem {self.vida} de vida restante.", end="\n \n")
         
     def dizer_nome(self):
-        print(f"Meu nome é {self.nome}")
+        print(f"Meu nome é {self.nome}.", end="\n \n")  
 
 
 class Pontuacao:
@@ -51,7 +42,7 @@ class Pontuacao:
         self.pontos += quantidade
     
     def mostrar_pontos(self):
-        print(f"Pontuação atual: {self.pontos}")
+        print(f"Pontuação atual: {self.pontos}", end="\n \n")
 
 
 class Jogador():
@@ -66,10 +57,11 @@ class Jogador():
 
     def recuperar_energia(self, quantidade):
         self.energia += quantidade
+        print(f"Energia recuperada em {quantidade}. Energia total {self.energia}", end="\n \n")
 
     def usar_energia(self, quantidade):
         if self.energia - quantidade < 0:
-            print("Sem energia suficiente!")
+            print("Sem energia suficiente!", end="\n \n")
         else:
             self.energia -= quantidade
 
@@ -85,35 +77,27 @@ class Inimigo():
         self.nome = nome
         self.vida = vida
 
-    def atacar(self, alvo):
-        dano = random.randint(5, 20)
-
-        print(f"{self.nome} atacou {alvo.nome}!")
-        print(f"{alvo.nome} recebeu {dano} de dano!", end="\n \n")
-
+    def atacar(self, alvo, dano):
+        alvo.vida -= 10 
+        # incluídpa chamada do método tomar_dano para resolução do exercício 8 na classe personagem
         alvo.tomar_dano(dano)
-        if alvo.vida <= 0:
-            print(f"{alvo.nome} foi derrotado!")
-    
-    def tomar_dano(self, dano):
-        self.vida -= dano
-        if self.vida <= 0:
-            print("Game Over!")
 
-# personagem = Personagem("Sibito")
-# personagem.dizer_nome()
 
-# pontos = Pontuacao()
-# pontos.adicionar_pontos(10)
-# pontos.mostrar_pontos()
 
-# jogador = Jogador()
-# jogador.recuperar_energia(20)
-# jogador.usar_energia(30)
-# jogador.usar_energia(50)
+personagem = Personagem("Sibito")
+personagem.dizer_nome()
 
-# heroi = Personagem("Sibito")
-# inimigo = Inimigo("Ogro")
+pontos = Pontuacao()
+pontos.adicionar_pontos(10)
+pontos.mostrar_pontos()
 
-# inimigo.atacar(heroi)
+jogador = Jogador()
+jogador.recuperar_energia(20)
+jogador.usar_energia(30)
+jogador.usar_energia(50)
+
+heroi = Personagem("Sibito")
+inimigo = Inimigo("Ogro")
+dano = int(input('Digite o valor do dano: '))
+inimigo.atacar(heroi, dano)
 
