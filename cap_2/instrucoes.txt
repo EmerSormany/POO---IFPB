@@ -1,0 +1,135 @@
+"""
+    2.1 Encapsulamento (public, private)
+        14 Ajuste na classe Personagem:
+        • Torne o atributo vida privado 
+        (__vida).
+        • Crie um método público mostrar_vida()
+        para retornar seu valor.
+        15 Ajuste na classe Pontuacao:
+        • Torne pontos privado (__pontos).
+        • Crie um método adicionar_pontos(valor), 
+        impedindo modificações diretas.
+        16 Ajuste na classe Inimigo:
+        • Torne o atributo forca privado (__forca).
+        • Modifique o método atacar() para exibir 
+        a força do ataque sem
+        acesso direto a __forca.
+        17 Ajuste na classe Jogador:
+        • Torne o atributo energia privado 
+        (__energia).
+        • Crie métodos usar_energia(valor) e 
+        recuperar_energia(valor),
+        garantindo que o valor fique entre 0 e 100.
+    2.2 Getters e Setters
+        18 Ajuste na classe Personagem:
+        • Substitua get_vida() por um getter usando @property.
+        • O atributo deve continuar privado (__vida).
+        19 Ajuste na classe Pontuacao:
+        • Substitua set_pontos(valor) por um setter usando
+        @pontos.setter.
+        • O setter deve impedir que pontos receba valores negativos.
+        20 Ajuste na classe Jogo:
+        • Substitua get_dificuldade() por um getter (@property).
+        • Substitua set_dificuldade(valor) por um setter
+        (@dificuldade.setter).
+        • O setter deve aceitar apenas valores de 1 a 3.
+        21 Ajuste na classe Personagem:
+        • Torne __defesa um atributo privado.
+        • Crie um getter @property para defesa.
+        7
+        • Crie um setter @defesa.setter, garantindo que o valor fique
+        entre 0 e 100.
+    2.3 Construtores
+        22 Ajuste na classe Personagem:
+        Modifique o __init__() para aceitar nome e vida ao criar o
+        personagem.
+        23 Ajuste na classe Inimigo:
+        Altere o __init__() para definir nome, vida e forca no momento
+        da criação.
+        24 Ajuste na classe Jogador:
+        Modifique o __init__() para aceitar nome, energia e pontos como
+        parâmetros.
+        25 Ajuste na classe Menu:
+        Modifique o __init__() para aceitar um titulo ao criar o menu e
+        exibir esse título ao iniciar.
+        2.4 Herança
+        26 Crie uma classe NPC, que herda de Personagem, mas não pode
+        atacar.
+        27 Crie uma classe Chefe, que herda de Inimigo, mas tem o dobro
+        de vida e força.
+        28 Modifique a classe Jogador para que JogadorPremium herde
+        dela e tenha um bônus de pontuação ao vencer desafios.
+        29 Crie JogoMultiplayer, que herda de Jogo, permitindo adicionar
+        múltiplos jogadores.
+        30 Crie MenuAvancado, que herda de Menu, permitindo salvar
+        configurações personalizadas.
+        31 Crie uma classe Arma e duas subclasses (Espada e Arco), cada
+        uma com um tipo de ataque diferente.
+        32 Crie uma classe Missao, com subclasses MissaoPrincipal e
+        MissaoSecundaria, onde cada uma tem diferentes recompensas.
+        33 Crie uma classe Item, com subclasses Pocao e Equipamento,
+        onde cada uma tem um efeito diferente.
+        34 Crie uma classe Fase, com subclasses FaseFloresta e
+        FaseDeserto, onde cada uma tem características específicas.
+        35 Crie uma classe Aliado, com subclasses Mago e Guerreiro, onde
+        cada um tem uma habilidade especial diferente.
+    2.5 Reescrita e Polimorfismo
+        36 Modifique a classe NPC para que ela sobrescreva o método
+        falar(), exibindo um texto diferente do método original de
+        Personagem.
+        37 Modifique a classe Chefe para que ela sobrescreva o método
+        atacar(), aplicando um golpe especial que causa dano extra.
+        38 Modifique a classe JogadorPremium para que ela sobrescreva
+        o método adicionar_pontos(), concedendo um multiplicador de
+        pontos maior que o da classe Jogador.
+        39 Modifique a classe JogoMultiplayer para que ela sobrescreva o
+        método iniciar(), exibindo uma mensagem diferente e
+        adicionando lógica para conectar múltiplos jogadores.
+        40 Modifique a classe MenuAvancado para que ela sobrescreva o
+        método exibir(), mostrando opções adicionais além das do Menu
+        original.
+        41 Modifique a classe FaseDeserto para que ela sobrescreva o
+        método gerar_inimigos(), adicionando inimigos específicos para
+        o ambiente de deserto.
+    2.6 Herança Múltipla
+        42 Crie uma classe Voador com um método voar() e faça uma nova
+        classe Dragao herdar tanto de Inimigo quanto de Voador,
+        permitindo que ele ataque e voe.
+        43 Crie uma classe Curador com um método curar() e faça a classe
+        Paladino herdar tanto de Guerreiro quanto de Curador,
+        permitindo que ele ataque e cure aliados.
+        44 Crie uma classe MagiaElemental com um método
+        lançar_magia() e faça a classe MagoElemental herdar tanto de
+        Mago quanto de MagiaElemental, permitindo que ele use
+        magias específicas de fogo, água, terra ou ar.
+        45 Crie uma classe AnimalMontaria com um método montar() e
+        faça a classe Cavaleiro herdar tanto de Guerreiro quanto de
+        AnimalMontaria, permitindo que ele lute montado em uma
+        criatura.
+    2.7 Associação, Composição e Agregação
+        46 Crie uma associação entre Jogador e Arma, onde um jogador
+        pode equipar uma arma para usar em combate.
+        47 Crie uma associação entre Personagem e Missao, onde um
+        personagem pode aceitar múltiplas missões.
+        48 Utilize composição para que a classe Jogo tenha um Menu,
+        garantindo que o menu seja criado junto com o jogo e destruído
+        junto com ele.
+        49 Utilize composição para que a classe Fase tenha um conjunto
+        de Inimigos, garantindo que os inimigos sejam criados e
+        destruídos junto com a fase.
+        50 Utilize composição para que a classe Inventario tenha uma lista
+        de Itens, garantindo que os itens pertencem exclusivamente ao
+        inventário e são destruídos com ele.
+        51 Utilize agregação para que a classe Guilda tenha vários
+        Jogadores, permitindo que os jogadores existam
+        independentemente da guilda.
+        52 Utilize agregação para que a classe Mapa tenha várias Fases,
+        onde as fases podem existir separadamente do mapa.
+        53 Utilize agregação para que a classe Loja tenha uma lista de Itens,
+        permitindo que os itens existam mesmo que a loja seja fechada.
+        54 Crie uma associação entre Aliado e Jogador, onde um aliado
+        pode acompanhar um jogador durante a aventura.
+        55 Crie uma composição onde a classe SistemaCombate gerencia
+        um Personagem e um Inimigo, garantindo que a batalha termine
+        quando o sistema de combate for encerrado.
+"""
