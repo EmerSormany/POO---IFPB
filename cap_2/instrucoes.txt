@@ -22,12 +22,16 @@
         garantindo que o valor fique entre 0 e 100.
     2.2 Getters e Setters
         18 Ajuste na classe Personagem:
-        • Substitua get_vida() por um getter usando @property.
-        • O atributo deve continuar privado (__vida).
+        • Substitua get_vida() por um getter 
+        usando @property.
+        • O atributo deve continuar privado 
+        (__vida).
         19 Ajuste na classe Pontuacao:
-        • Substitua set_pontos(valor) por um setter usando
+        • Substitua set_pontos(valor) por um 
+        setter usando
         @pontos.setter.
-        • O setter deve impedir que pontos receba valores negativos.
+        • O setter deve impedir que pontos
+        receba valores negativos.
         20 Ajuste na classe Jogo:
         • Substitua get_dificuldade() por um getter (@property).
         • Substitua set_dificuldade(valor) por um setter
