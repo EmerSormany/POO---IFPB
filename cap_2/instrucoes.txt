@@ -2,24 +2,24 @@
     2.1 Encapsulamento (public, private)
         14 Ajuste na classe Personagem:
         • Torne o atributo vida privado 
-        (__vida).
+        (__vida). v
         • Crie um método público mostrar_vida()
-        para retornar seu valor.
+        para retornar seu valor. v
         15 Ajuste na classe Pontuacao:
-        • Torne pontos privado (__pontos).
+        • Torne pontos privado (__pontos). v
         • Crie um método adicionar_pontos(valor), 
-        impedindo modificações diretas.
+        impedindo modificações diretas. v
         16 Ajuste na classe Inimigo:
-        • Torne o atributo forca privado (__forca).
+        • Torne o atributo forca privado (__forca) v
         • Modifique o método atacar() para exibir 
         a força do ataque sem
-        acesso direto a __forca.
+        acesso direto a __forca. v
         17 Ajuste na classe Jogador:
         • Torne o atributo energia privado 
-        (__energia).
+        (__energia). v
         • Crie métodos usar_energia(valor) e 
-        recuperar_energia(valor),
-        garantindo que o valor fique entre 0 e 100.
+        recuperar_energia(valor), v
+        garantindo que o valor fique entre 0 e 100. v
     2.2 Getters e Setters
         18 Ajuste na classe Personagem:
         • Substitua get_vida() por um getter 
