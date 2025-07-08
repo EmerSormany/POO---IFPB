@@ -56,7 +56,7 @@
         25 Ajuste na classe Menu:
         Modifique o __init__() para aceitar um titulo ao criar o menu e
         exibir esse título ao iniciar.
-        2.4 Herança
+    2.4 Herança
         26 Crie uma classe NPC, que herda de Personagem, mas não pode
         atacar.
         27 Crie uma classe Chefe, que herda de Inimigo, mas tem o dobro
