@@ -362,9 +362,9 @@ class Aliado:
 
 class Mago(Aliado):
     def habilidade(self):
-        print("Lança feitiço de fogo!")
+        print("Lança feitiço de fogo!", end="\n \n")
 
 class Guerreiro(Aliado):
     def habilidade(self):
-        print("Golpe devastador e atordoa o alvo!")
+        print("Golpe devastador e atordoa o alvo!", end="\n \n")
 
