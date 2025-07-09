@@ -12,7 +12,7 @@ class Personagem:
     def tomar_dano(self, dano):
         self.__vida -= dano
 
-    def dizer_nome(self):
+    def falar(self):
         print(f"Meu nome é {self.nome}.", end="\n \n")
 
     @property
@@ -344,6 +344,9 @@ class Equipamento(Item):
 class Fase:
     def caracteristicas(self):
         print("Ambiente neutro, sem características específicas.")
+    
+    def gerar_inimigos(self):
+        print("Gerando inimigos padrão: Goblin, Orc.")
 
 class FaseFloresta(Fase):
     def caracteristicas(self):
