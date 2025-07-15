@@ -1,0 +1,17 @@
+56 Crie um atributo de classe total_jogadores na classe Jogador,
+que conta quantos jogadores foram criados.
+57 Crie um método de classe exibir_total_jogadores() na classe
+Jogador, que retorna a quantidade total de jogadores
+instanciados.
+58 Crie um atributo de classe dificuldade_global na classe Jogo,
+que define a dificuldade do jogo e pode ser alterada por qualquer
+instância.
+59 Crie um método estático calcular_dano_base(forca) na classe
+Personagem, que retorna o dano base de um ataque, sem
+precisar de uma instância.
+60 Crie um método de classe ajustar_preco_itens(fator) na classe
+Loja, que altera o preço de todos os itens com base em um fator
+global de inflação.
+61 Crie um atributo de classe tempo_maximo na classe Fase, que
+define o tempo máximo permitido para completar qualquer fase
+do jogo.

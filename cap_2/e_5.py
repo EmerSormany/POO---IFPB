@@ -1,5 +1,5 @@
 
-from e_4 import Jogador, Jogo, Pontuacao, Personagem, Inimigo, Menu, Fase
+from cap_2.e_4 import Jogador, Jogo, Pontuacao, Personagem, Inimigo, Menu, Fase
 
 class NPC(Personagem):
     def __init__(self, nome, vida, defesa=50):

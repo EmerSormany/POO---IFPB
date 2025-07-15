@@ -27,8 +27,8 @@
         quando o sistema de combate for encerrado. === FEITO
 """ 
 
-from e_5 import Jogador, Personagem
-from e_4 import Arma, Missao, Menu, Aliado
+from cap_2.e_5 import Jogador, Personagem
+from cap_2.e_4 import Arma, Missao, Menu, Aliado
 
 arma = Arma("Soco Inglês")
 jogador = Jogador("Guerreiro", 100, 50)
