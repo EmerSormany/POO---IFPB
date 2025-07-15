@@ -8,6 +8,7 @@ class Personagem:
         self.nome = nome
         self.__vida = vida
         self.__defesa = defesa
+        self.missoes = []
 
     def tomar_dano(self, dano):
         self.__vida -= dano
@@ -43,6 +44,10 @@ Quer descansar? digite 's' para sim ou 'n' para não: """)
             if x == "s":
                 jogador.descansar(self)
 
+    def adicionar_missao(self, missao):
+        self.missoes.append(missao)
+        print(f"Missão '{missao.nome}' adicionada ao personagem {self.nome}.", end="\n \n")
+
 class Inimigo:
     def __init__(self, nome, vida, forca):
         self.nome = nome
@@ -68,6 +73,8 @@ class Jogador:
         self.nome = nome
         self.__energia = energia
         self.pontos = pontos
+        self.inventario = []
+        self.aliados = []
 
     @property
     def energia(self):
@@ -100,6 +107,11 @@ class Jogador:
         self.recuperar_energia(20)
         personagem.defesa += 5
         print(f"A defesa de {personagem.nome} aumentou para {personagem.defesa}", end="\n \n")
+
+    def adicionar_item(self, item):
+        self.inventario.append(item)
+        print(f"Item {item.nome} adicionado ao inventário.", end="\n \n")
+
 
 class Pontuacao:
     def __init__(self, pontos=0):
@@ -165,7 +177,7 @@ class Jogo:
 
     def iniciar_jogo(self):
         for nome in self.inimigos:
-            inimigo = Inimigo(nome)
+            inimigo = Inimigo(nome, 80, 12)
             while self.personagem.vida > 0 and inimigo.vida > 0:
                 self.personagem.atacar(inimigo, self.jogador)
 
@@ -230,12 +242,13 @@ Você pode descansar quantas vezes quiser.
 class Menu:
     def __init__(self, titulo):
         self.titulo = titulo
+        self.jogo = Jogo()
 
-    def iniciar_jogo(self, jogo):
+    def iniciar_jogo(self):
         print(f"\n{self.titulo}")
         print("Bem-vindo ao jogo!")
         print("Iniciando o jogo...\n")
-        jogo.executar()
+        self.jogo.executar()
 
     def mostrar_opcoes(self):
         print("Mostrando opções...")
@@ -243,7 +256,7 @@ class Menu:
     def sair(self):
         print("Saindo do jogo...")
 
-    def exibir_menu_principal(self, jogo):
+    def exibir_menu_principal(self):
         while True:
             print("\n" + "="*40)
             print(f"{self.titulo}")
@@ -255,7 +268,7 @@ class Menu:
             opcao = input("Escolha uma opção: ")
 
             if opcao == "1":
-                self.iniciar_jogo(jogo)
+                self.iniciar_jogo()
                 break
             elif opcao == "2":
                 self.mostrar_opcoes()
@@ -306,6 +319,9 @@ class MenuAvancado(Menu):
         print(f"Configuração '{chave}' salva como '{valor}'.", end="\n \n")
 
 class Arma:
+    def __init__(self, nome):
+        self.nome = nome
+
     def atacar(self):
         print("Ataque neutro.")
 
@@ -318,6 +334,10 @@ class Arco(Arma):
         print("Ataque com arco: perfurante!")
 
 class Missao:
+    def __init__(self, nome, descricao):
+        self.nome = nome
+        self.descricao = descricao
+
     def recompensa(self):
         print("Você foi voluntário nessa missão, participar dela é a própria recompensa.")
 
@@ -357,6 +377,13 @@ class FaseDeserto(Fase):
         print("Fase Deserto: calor intenso e pouca água.")
 
 class Aliado:
+    def __init__(self, nome):
+        self.__nome = nome
+
+    @property
+    def nome(self):
+        return self.__nome
+    
     def habilidade(self):
         print("Possui uma adaga.")
 
